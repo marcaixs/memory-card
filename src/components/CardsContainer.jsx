@@ -4,7 +4,8 @@ import { useState, useEffect } from 'react'
 export default function CardsContainer(){
     const [pokemons, setPokemons] = useState([]); //array of random pokemons fetched from api
     const [selectedPokemons, setSelectedPokemons] = useState([]) //array of pokemon ids selected by user
-    const [score, setScore] = useState(0);
+    const [currentScore, setCurrentScore] = useState(0);
+    const [maxScore, setMaxScore] = useState(0);
 
     useEffect(() => {
         const fetchPokemons = async () => {
@@ -44,7 +45,7 @@ export default function CardsContainer(){
 
     return(
         <>
-        <p>Score: {score}</p>
+        <p>Score: {currentScore}</p>
         <div className="card-container">
             {shuffle(pokemons).map((pokemon)=>
                 <Card pokemon={pokemon} selectedPokemons={selectedPokemons} setSelectedPokemons={setSelectedPokemons}/>

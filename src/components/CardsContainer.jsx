@@ -15,7 +15,7 @@ export default function CardsContainer(){
                 const randomIds = []; //store random ids 
 
                 //create random ids and push into the array only if its unique
-                while (randomIds.length < 10){
+                while (randomIds.length < 15){
                     const randomId = Math.floor(Math.random() * 151) + 1;
                     if(randomIds.indexOf(randomId) === -1) randomIds.push(randomId);
                 }

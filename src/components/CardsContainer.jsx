@@ -37,12 +37,18 @@ export default function CardsContainer(){
         //call the async function
         fetchPokemons();
            
-    }, [gameOver]);
+    }, [gameOver]); //run effect every time game ends
 
     //function to shuffle an array. Will use on pokemon to render cards in random order
     function shuffle(array) {
        return array.sort(() => Math.random() - 0.5);
     }
+    //calculate if current store is bigger than maxScore. If true, sets new max score
+    function maxScoreCalculation(currentScore, maxScore, setMaxScore){
+        if (currentScore > maxScore ) setMaxScore(currentScore)
+    }
+    //call the function
+    maxScoreCalculation(currentScore, maxScore, setMaxScore)
 
     return(
         <>

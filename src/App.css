@@ -1,19 +1,59 @@
+*{
+    padding: 0%;
+    margin: 0%;
+    box-sizing: border-box;
+}
+
+@font-face {
+  font-family: pokeFont;
+  src: url('./assets/Pokemon.ttf');
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    padding: 0vh 4vh;
+    height: 100vh;
+    gap: 2vh;
+    font-family: sans-serif;
+    background-color: rgb(230, 120, 36);
+    font-weight: bold;
+    
+}
+
+h1{
+    align-self: center;
+    font-family: pokeFont;
+    font-size: 6vh;
+    color: rgb(255, 229, 33);
+    -webkit-text-stroke: 1px blue;
+    
+}
+
 .card-container{
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    gap: 2vh;
+    row-gap: 3vh;
+    column-gap: 10vh;
+    justify-items: center; /* Centra horizontalmente cada item */
+    align-items: center; 
+    
 }
 
 .card{
     display: flex;
     flex-direction: column;
-    width: fit-content;
     align-items: center;
     justify-content: center;
+    width: 100%;
+    height: 100%;  
+    padding: 2vh;
     border: solid 1px black;
     border-radius: 10%;
+    background-color: white;
+    
 }
 
 .card:hover{
-    background-color: green;
+    background-color: rgb(70, 213, 70);
 }

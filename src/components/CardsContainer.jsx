@@ -51,7 +51,8 @@ export default function CardsContainer(){
     maxScoreCalculation(currentScore, maxScore, setMaxScore)
 
     return(
-        <>
+        <div className="container">
+            <h1>Memory Card</h1>
             <p>Score: {currentScore}</p>
             <p>Max Score: {maxScore}</p>
 
@@ -61,7 +62,7 @@ export default function CardsContainer(){
                     setCurrentScore={setCurrentScore} gameOver={gameOver} setGameOver={setGameOver}/>
                 )}
             </div>
-        </> 
+        </div> 
        
     )
 }

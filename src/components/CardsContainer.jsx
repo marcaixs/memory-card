@@ -52,7 +52,7 @@ export default function CardsContainer(){
 
     return(
         <div className="container">
-            <h1>Memory Card</h1>
+            <h1>Pokémon Memory Card</h1>
             <p>Score: {currentScore}</p>
             <p>Max Score: {maxScore}</p>
 

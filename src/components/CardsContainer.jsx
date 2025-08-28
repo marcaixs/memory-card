@@ -2,7 +2,9 @@ import Card from "./Card"
 import { useState, useEffect } from 'react'
 
 export default function CardsContainer(){
-    const [pokemons, setPokemons] = useState([]);
+    const [pokemons, setPokemons] = useState([]); //array of random pokemons fetched from api
+    const [selectedPokemons, setSelectedPokemons] = useState([]) //array of pokemon ids selected by user
+    const [score, setScore] = useState(0);
 
     useEffect(() => {
         const fetchPokemons = async () => {
@@ -35,10 +37,15 @@ export default function CardsContainer(){
            
     }, []);
 
-    return(   
+    //function to shuffle an array. Will use on pokemon to render cards in random order
+    function shuffle(array) {
+       return array.sort(() => Math.random() - 0.5);
+    }
+
+    return( 
         <div className="card-container">
-            {pokemons.map((pokemon)=>
-                <Card pokemon={pokemon}/>
+            {shuffle(pokemons).map((pokemon)=>
+                <Card pokemon={pokemon} selectedPokemons={selectedPokemons} setSelectedPokemons={setSelectedPokemons}/>
             )}
         </div>
     )

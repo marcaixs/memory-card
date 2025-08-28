@@ -42,11 +42,15 @@ export default function CardsContainer(){
        return array.sort(() => Math.random() - 0.5);
     }
 
-    return( 
+    return(
+        <>
+        <p>Score: {score}</p>
         <div className="card-container">
             {shuffle(pokemons).map((pokemon)=>
                 <Card pokemon={pokemon} selectedPokemons={selectedPokemons} setSelectedPokemons={setSelectedPokemons}/>
             )}
         </div>
+        </> 
+       
     )
 }

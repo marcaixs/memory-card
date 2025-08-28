@@ -4,8 +4,9 @@ import { useState, useEffect } from 'react'
 export default function CardsContainer(){
     const [pokemons, setPokemons] = useState([]); //array of random pokemons fetched from api
     const [selectedPokemons, setSelectedPokemons] = useState([]) //array of pokemon ids selected by user
-    const [currentScore, setCurrentScore] = useState(0);
-    const [maxScore, setMaxScore] = useState(0);
+    const [currentScore, setCurrentScore] = useState(0); //current score of the play
+    const [maxScore, setMaxScore] = useState(0); //historical max score
+    const [gameOver, setGameOver] = useState(false);
 
     useEffect(() => {
         const fetchPokemons = async () => {
@@ -36,7 +37,7 @@ export default function CardsContainer(){
         //call the async function
         fetchPokemons();
            
-    }, []);
+    }, [gameOver]);
 
     //function to shuffle an array. Will use on pokemon to render cards in random order
     function shuffle(array) {
@@ -45,12 +46,15 @@ export default function CardsContainer(){
 
     return(
         <>
-        <p>Score: {currentScore}</p>
-        <div className="card-container">
-            {shuffle(pokemons).map((pokemon)=>
-                <Card pokemon={pokemon} selectedPokemons={selectedPokemons} setSelectedPokemons={setSelectedPokemons}/>
-            )}
-        </div>
+            <p>Score: {currentScore}</p>
+            <p>Max Score: {maxScore}</p>
+
+            <div className="card-container">
+                {shuffle(pokemons).map((pokemon)=>
+                    <Card pokemon={pokemon} selectedPokemons={selectedPokemons} setSelectedPokemons={setSelectedPokemons} currentScore={currentScore}
+                    setCurrentScore={setCurrentScore} gameOver={gameOver} setGameOver={setGameOver}/>
+                )}
+            </div>
         </> 
        
     )
